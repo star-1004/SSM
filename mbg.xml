@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <!--配置数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/ssm_crud"
+                        userId="root"
+                        password="wad0130ll">
+        </jdbcConnection>
+<!--指定javabean生成的位置-->
+        <javaModelGenerator targetPackage="com.atguigu.curd.bean" targetProject=".\src\main\java"/>
+
+        <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources"/>
+<!--指定到接口生成的位置-->
+        <javaClientGenerator targetPackage="com.atguigu.curd.dao" targetProject=".\src\main\java" type="XMLMAPPER" />
+<!--table指定每个表的生成策略-->
+        <table tableName="tbl_emp" domainObjectName="Employee">
+        </table>
+        <table tableName="tbl_dept" domainObjectName="Department">
+        </table>
+    </context>
+</generatorConfiguration>
